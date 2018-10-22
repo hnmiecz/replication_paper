@@ -1,0 +1,168 @@
+---
+title: "Replication of Study 3 by Porter et al. (2016, Psychological Science)"
+author: "Hannah Mieczkowski"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+---
+
+<!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
+
+##Introduction
+
+<!-- A short justification for your choice of experiment in terms of your research interests or research program (1 paragraph). This justification should tell us why you chose this particular result – this section is especially important if you are choosing a result outside of the standard MTurk/Psych Sci model.-->
+One of my main research interests is the way in which someone's language can affect perceptions of them. I am choosing to replicate Study 3 from "Inferring Identity From Language: Linguistic Intergroup Bias Informs Social Categorization" because it falls into my interest area and I might reference their hypothesis in my future work. Additionally, their focus on political party affiliation is relevant for the current political moment. The results of this study suggest favorable linguistic integroup bias (LIB), or "us[ing] abstract language to  describe in-group members’ desirable behaviors and  concrete language to describe their undesirable
+behaviors," increased the likelihood that the participant believed the target shared the same group membership. Most people do not think about whether or not they should describe someone abstractly or concretely when talking about them, but it appears that this distinction has a notable effect. Replicating this finding would provide additional evidence that this phenomenon exists and that differences in language choice can have an effect on perception.
+
+<!-- A description of the stimuli and procedures that will be required to conduct this experiment, and what the challenges will be (1-2 paragraphs). -->
+The stimuli in this experiment were passages about a fictional man named Peter that included indications about his political party affiliation as well as his helpful and rude behaviors. This study had four conditions: favorable/unfavorable LIB Democratic, and favorable/unfavorable LIB Republican. In the favorable LIB conditions, helpful behavior was written in abstract language and rude behavior in concrete language. The unfavorable conditions had helpful behavior in concrete language and rude behavior in abstract language. Party affiliation was indicated by past voting behavior. After reading the passages, participants answered questions about the Peter's likely political group membership, how likely they would be friends with him and information about their own party affiliations and ideology. Participant information was used in the analysis, which was a 2 (LIB condition) x 2 (Peter's affiliation) x 3 (participant affiliation) ANOVA. Manipulation checks on the effectiveness of the LIB treatment will be conducted as well.
+
+The participants in this replication study will be able to complete this on Amazon Mechanical Turk, which was also the venue for the original study. When conducting this experiment, I will be careful to properly set up the study on both Qualtrics and MTurk so that participants do not run into any issues that inhibit their completion of the study. Other challenges might include cleaning the data from Qualtrics, which has been difficult for me in the past. Hopefully my new knowledge of how to tidy the data will help!
+
+<!-- A link to the repository and to the original paper (as hosted in your repo). The goal is that we should be able to click on these links and review that your repo is formatted right and look at the original paper. -->
+Repository: https://github.com/hnmiecz/replication_paper
+Original Paper: https://github.com/hnmiecz/replication_paper/blob/master/original_paper/porter2016.pdf
+
+##Methods
+
+###Power Analysis
+
+The original authors note that the effect sizes they are using in Study 3 are taken from Study 1a. Effect sizes range from *d* = 0.53 - 0.80. After I learn how to conduct a power analysis this week in class, I will fill out the rest of this section.
+
+###Planned Sample
+
+The original study had 145 participants, so a similar size is most likely necessary for this project based on the effect sizes noted in the power analysis section
+
+###Materials
+
+The following paragraphs are taken directly from the supplemental materials provided by Porter et al. (2016) and will be used in this study in the same form: 
+
+"Study 3 Communicator Statements
+
+Favorable LIB Condition
+The communicator states the following about Peter: On one occasion, there is a person in a wheelchair who needs assistance getting up a ramp. Peter reaches for the handles of the wheelchair. Peter is helpful. On the other hand, on another occasion, while at work, Peter talks to one of his colleagues. While the colleague is still talking, Peter yawns
+loudly, turns and begins walking away. Peter walks back to his office.
+
+Unfavorable LIB Condition
+The communicator states the following about Peter: On one occasion, there is a person in a wheelchair who needs assistance getting up a ramp. Peter reaches for the handles of the wheelchair. Peter pushes the wheelchair up the ramp. On the other hand, on another occasion, while at work, Peter talks to one of his colleagues. While the colleague is still talking, Peter yawns loudly, turns and begins walking away. Peter is rude."
+
+###Procedure	
+The following procedure is described in Porter et al. (2016) and will be followed precisely:
+
+"As in Study 1a, participants were asked to read a passage and then respond to questions. In the Republican-target condition, the passage indicated that Peter had voted for John McCain; in the Democratic-target condition, Peter had voted for Barack Obama.
+In the second part of the passage, participants were
+again provided with an unknown communicator’s
+description of Peter’s helpful and rude behaviors.
+Following Wigboldus et al. (2000), we included a description of one discrete episode, expressed in the present tense, for each type of behavior (for the full descriptions, see Table S1 in the Supplemental Material available online). For example, the description of helpful behavior in the favorable-LIB condition was written in abstract language and read as follows: “On one occasion, there is a person in a wheelchair who needs assistance getting up a ramp. Peter reaches for the handles of the wheelchair. Peter is helpful.” In the unfavorable-LIB condition, helpful behavior was described concretely: “On one occasion,
+there is a person in a wheelchair who needs assistance getting up a ramp. Peter reaches for the handles of the wheelchair. Peter pushes the wheelchair up the ramp.”
+After reading the passage, participants indicated the likely group membership of the communicator on an 8-point scale anchored by 1, definitely a Democrat, and 8, definitely a Republican. They then rated the likelihood that they would be friends with the communicator, using a 5-point scale ranging from 1, it is not at all likely, to 5, it is extremely likely. Finally, participants completed the manipulation-check items and a demographic questionnaire on which they reported their political-party affiliation and political ideology."
+
+The manipulation check and political-party affiliation questions were described as follows: "We asked participants to estimate the percentage of future situations in which Peter was likely to be helpful and the percentage of future situations in which he was likely to be rude (Semin & de Poot, 1997). Finally, participants completed a demographic questionnaire that asked their gender, their political-party affiliation, and the degree to which they endorsed liberal and conservative beliefs (on 7-point scales ranging from 1, strongly disagree, to 7, strongly agree)."
+
+###Analysis Plan
+
+First, like in the original paper, a LIB manipulation check will be conducted through an ANOVA. Participants in the favorable-LIB condition should believe that Peter will be more helpful in the future and participants in the unfavorable-LIB condition should indicate Peter will be rude in the future. If this is not the case, then the treatment will have failed. However, if it is shown to be successful several factorial ANOVAs (as completed in the original paper) will be conducted in order to ascertain any differences in dependent variable outcomes between conditions. The dependent variables are social category inference and frienship likelihood. 
+
+
+**Clarify key analysis of interest here**  The key analyses of interest are the aforementioned ANOVAs on social category inference and frienship likelihood. 
+
+###Differences from Original Study
+
+Since the data for this study was presumably collected in 2013 (when the first draft of the manuscript was received), differences in assumptions about political partisanship may occur. As a result of alleged "echo chambers" in the current politic moment, social category ratings may not replicate. There are no anticipated differences in method or procedure.
+
+### Methods Addendum (Post Data Collection)
+
+<!--You can comment this section out prior to final report with data collection.
+
+#### Actual Sample
+  Sample size, demographics, data exclusions based on rules spelled out in analysis plan
+
+#### Differences from pre-data collection methods plan
+  Any differences from what was described as the original plan, or “none”.-->
+
+
+##Results
+
+
+### Data preparation
+
+Data preparation following the analysis plan.
+Load Relevant Libraries and Functions
+tidyverse, dplyr, ggplot, etc.
+
+Import data
+data from qualtrics will be in CSV format
+
+Data exclusion / filtering
+Exclude participants with "other" or "none" as political affiliation
+
+Prepare data for analysis - create columns etc.
+Since Qualtrics will provide data in a wide format, it will be necessary to change it into a long format. Each row will be a participant's ratings for the questions they were asked. Since this is partially a between-subjects design, there will be four "groups" of columns. One group will be for the favorable-LIB Democrat conditon questions, another for the favorable-LIB Republican condition questions, etc. I will create new columns indicating which condition the participant is in (coded 1 to 4). In order to replicate some of the graphs, I think I will also need to make other columns indicating whether the participant was in a favorable or unfavorable LIB condition (LIB_condition), as well as whether they were in a Democrat or Republican condition (POL_condition_target). Then I will gather the data using dpylr so that ratings for the same questions are in the same columns. 
+	
+```{r include=F}
+###Data Preparation
+
+####Load Relevant Libraries and Functions
+#tidyverse, dplyr, ggplot, etc.
+
+####Import data
+#data from qualtrics will be in CSV format
+
+#### Data exclusion / filtering
+#Exclude participants with "other" or "none" as political affiliation
+#### Prepare data for analysis - create columns etc.
+#Since Qualtrics will provide data in a wide format, it will be necessary to change it into a long format. Each row will be a participant's ratings for the questions they were asked. Since this is partially a between-subjects design, there will be four "groups" of columns. One group will be for the favorable-LIB Democrat conditon questions, another for the favorable-LIB Republican condition questions, etc. I will create new columns indicating which condition the participant is in (coded 1 to 4). In order to replicate some of the graphs, I think I will also need to make other columns indicating whether the participant was in a favorable or unfavorable LIB condition (LIB_condition), as well as whether they were in a Democrat or Republican condition (POL_condition_target). Then I will gather the data using dpylr so that ratings for the same questions are in the same columns. 
+```
+
+### Confirmatory analysis
+All code in this section is hypothetical. Three main analyses will be conducted. The first is the LIB manipulation check. I will utilize an ANOVA to see if there are significant differences between the conditions in terms of how helpful or rude the participants expect Peter to be in the future. Tukey HSD tests will be conducted post-hoc if significant differences are found. 
+
+manip_check_rude.aov = lm(rude ~ LIB_condition*POL_condition_target, data)
+summary(manip_check_rude.aov)
+manip_check_helpful.aov = lm(rude ~ LIB_condition*POL_condition_target, data)
+summary(manip_check_helpful.aov)
+```{r include=F}
+#manip_check_rude.aov = lm(rude ~ LIB_condition*POL_condition_target, data)
+#summary(manip_check_rude.aov)
+#manip_check_helpful.aov = lm(rude ~ LIB_condition*POL_condition_target, data)
+#summary(manip_check_helpful.aov)
+```
+
+Similar ANOVAs will be conducted for the social category inference and friendship likelihood DVs, this time taking into account the participant's political affiliation. Tukey HSD tests will be conducted post-hoc if significant differences are found.
+
+friendship_likelihood_hyp.aov = lm(friendship_likelihood ~ LIB_condition(asterisk)POL_condition_target (asterisk)POL_condition_participant, data)
+summary(friendship_likelihood_hyp.aov)
+
+social_category_hyp.aov = lm(social_category ~ LIB_condition(asterisk)POL_condition_target(asterisk)POL_condition_participant, data)
+summary(social_category_hyp.aov)
+
+Note: I am still learning how to test for interaction effects. If this is not the correct way to code this, please let me know!
+```{r include=F}
+#friendship_likelihood_hyp.aov = lm(friendship_likelihood ~ LIB_condition*POL_condition_target*POL_condition_participant, data)
+#summary(friendship_likelihood_hyp.aov)
+
+#social_category_hyp.aov = lm(social_category ~ LIB_condition*POL_condition_target*POL_condition_participant, data)
+#summary(social_category_hyp.aov)
+
+#Note: I am still learning how to test for interaction effects. If this is not the correct way to code this, please let me know!
+```
+
+*Side-by-side graph with original graph is ideal here*
+
+###Exploratory analyses
+
+Any follow-up analyses desired (not required).  
+
+## Discussion
+
+### Summary of Replication Attempt
+
+Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
+
+### Commentary
+
+Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
