@@ -15,8 +15,7 @@ output:
 ##Introduction
 
 <!-- A short justification for your choice of experiment in terms of your research interests or research program (1 paragraph). This justification should tell us why you chose this particular result – this section is especially important if you are choosing a result outside of the standard MTurk/Psych Sci model.-->
-One of my main research interests is the way in which someone's language can affect perceptions of them. I am choosing to replicate Study 3 from "Inferring Identity From Language: Linguistic Intergroup Bias Informs Social Categorization" because it falls into my interest area and I might reference their hypothesis in my future work. Additionally, their focus on political party affiliation is relevant for the current political moment. The results of this study suggest favorable linguistic integroup bias (LIB), or "us[ing] abstract language to  describe in-group members’ desirable behaviors and  concrete language to describe their undesirable
-behaviors," increased the likelihood that the participant believed the target shared the same group membership. Most people do not think about whether or not they should describe someone abstractly or concretely when talking about them, but it appears that this distinction has a notable effect. Replicating this finding would provide additional evidence that this phenomenon exists and that differences in language choice can have an effect on perception.
+One of my main research interests is the way in which someone's language can affect perceptions of them. I am choosing to replicate Study 3 from "Inferring Identity From Language: Linguistic Intergroup Bias Informs Social Categorization" because it falls into my interest area and I might reference their hypothesis in my future work. Additionally, their focus on political party affiliation is relevant for the current political moment. The results of this study suggest favorable linguistic integroup bias (LIB), or "us[ing] abstract language to  describe in-group members’ desirable behaviors and  concrete language to describe their undesirable behaviors," increased the likelihood that the participant believed the target shared the same group membership. Most people do not think about whether or not they should describe someone abstractly or concretely when talking about them, but it appears that this distinction has a notable effect. Replicating this finding would provide additional evidence that this phenomenon exists and that differences in language choice can have an effect on perception.
 
 <!-- A description of the stimuli and procedures that will be required to conduct this experiment, and what the challenges will be (1-2 paragraphs). -->
 The stimuli in this experiment were passages about a fictional man named Peter that included indications about his political party affiliation as well as his helpful and rude behaviors. This study had four conditions: favorable/unfavorable LIB Democratic, and favorable/unfavorable LIB Republican. In the favorable LIB conditions, helpful behavior was written in abstract language and rude behavior in concrete language. The unfavorable conditions had helpful behavior in concrete language and rude behavior in abstract language. Party affiliation was indicated by past voting behavior. After reading the passages, participants answered questions about the Peter's likely political group membership, how likely they would be friends with him and information about their own party affiliations and ideology. Participant information was used in the analysis, which was a 2 (LIB condition) x 2 (Peter's affiliation) x 3 (participant affiliation) ANOVA. Manipulation checks on the effectiveness of the LIB treatment will be conducted as well.
@@ -31,11 +30,11 @@ Original Paper: https://github.com/hnmiecz/replication_paper/blob/master/origina
 
 ###Power Analysis
 
-The original authors note that the effect sizes they are using in Study 3 are taken from Study 1a. Effect sizes range from *d* = 0.53 - 0.80. After I learn how to conduct a power analysis this week in class, I will fill out the rest of this section.
+The original authors note that the effect sizes they are using in Study 3 are taken from Study 1a. The effect size for study 3 was range from *d* = 0.51. Using G*Power, I conducted a power analysis to obtain 80% power with alpha = .05. 
 
 ###Planned Sample
 
-The original study had 145 participants, so a similar size is most likely necessary for this project based on the effect sizes noted in the power analysis section
+From the power analysis, I concluded that a sample size of 50 would be appropriate. 
 
 ###Materials
 
@@ -54,21 +53,19 @@ The communicator states the following about Peter: On one occasion, there is a p
 The following procedure is described in Porter et al. (2016) and will be followed precisely:
 
 "As in Study 1a, participants were asked to read a passage and then respond to questions. In the Republican-target condition, the passage indicated that Peter had voted for John McCain; in the Democratic-target condition, Peter had voted for Barack Obama.
-In the second part of the passage, participants were
-again provided with an unknown communicator’s
-description of Peter’s helpful and rude behaviors.
-Following Wigboldus et al. (2000), we included a description of one discrete episode, expressed in the present tense, for each type of behavior (for the full descriptions, see Table S1 in the Supplemental Material available online). For example, the description of helpful behavior in the favorable-LIB condition was written in abstract language and read as follows: “On one occasion, there is a person in a wheelchair who needs assistance getting up a ramp. Peter reaches for the handles of the wheelchair. Peter is helpful.” In the unfavorable-LIB condition, helpful behavior was described concretely: “On one occasion,
-there is a person in a wheelchair who needs assistance getting up a ramp. Peter reaches for the handles of the wheelchair. Peter pushes the wheelchair up the ramp.”
+In the second part of the passage, participants were again provided with an unknown communicator’s description of Peter’s helpful and rude behaviors. Following Wigboldus et al. (2000), we included a description of one discrete episode, expressed in the present tense, for each type of behavior (for the full descriptions, see Table S1 in the Supplemental Material available online). For example, the description of helpful behavior in the favorable-LIB condition was written in abstract language and read as follows: “On one occasion, there is a person in a wheelchair who needs assistance getting up a ramp. Peter reaches for the handles of the wheelchair. Peter is helpful.” In the unfavorable-LIB condition, helpful behavior was described concretely: “On one occasion, there is a person in a wheelchair who needs assistance getting up a ramp. Peter reaches for the handles of the wheelchair. Peter pushes the wheelchair up the ramp.”
 After reading the passage, participants indicated the likely group membership of the communicator on an 8-point scale anchored by 1, definitely a Democrat, and 8, definitely a Republican. They then rated the likelihood that they would be friends with the communicator, using a 5-point scale ranging from 1, it is not at all likely, to 5, it is extremely likely. Finally, participants completed the manipulation-check items and a demographic questionnaire on which they reported their political-party affiliation and political ideology."
 
 The manipulation check and political-party affiliation questions were described as follows: "We asked participants to estimate the percentage of future situations in which Peter was likely to be helpful and the percentage of future situations in which he was likely to be rude (Semin & de Poot, 1997). Finally, participants completed a demographic questionnaire that asked their gender, their political-party affiliation, and the degree to which they endorsed liberal and conservative beliefs (on 7-point scales ranging from 1, strongly disagree, to 7, strongly agree)."
 
+The survey can be found here: https://stanforduniversity.qualtrics.com/jfe/form/SV_6LGMhD4QCpxHBVX
+
 ###Analysis Plan
 
-First, like in the original paper, a LIB manipulation check will be conducted through an ANOVA. Participants in the favorable-LIB condition should believe that Peter will be more helpful in the future and participants in the unfavorable-LIB condition should indicate Peter will be rude in the future. If this is not the case, then the treatment will have failed. However, if it is shown to be successful several factorial ANOVAs (as completed in the original paper) will be conducted in order to ascertain any differences in dependent variable outcomes between conditions. The dependent variables are social category inference and frienship likelihood. 
+First, like in the original paper, a LIB manipulation check will be conducted through an ANOVA. Participants in the favorable-LIB condition should believe that Peter will be more helpful in the future and participants in the unfavorable-LIB condition should indicate Peter will be rude in the future. If this is not the case, then the treatment will have failed. However, if it is shown to be successful, a factorial ANOVA (as completed in the original paper) will be conducted in order to ascertain any differences in dependent variable outcomes between conditions. The dependent variable is social category inference. 
 
 
-**Clarify key analysis of interest here**  The key analyses of interest are the aforementioned ANOVAs on social category inference and frienship likelihood. 
+**Clarify key analysis of interest here**  The key analyses of interest are the aforementioned ANOVAs on social category inference. In order for the original main effect of LIB condition to replicate, I will look for a p-value of less than .01. 
 
 ###Differences from Original Study
 
@@ -101,54 +98,68 @@ Data exclusion / filtering
 Exclude participants with "other" or "none" as political affiliation
 
 Prepare data for analysis - create columns etc.
-Since Qualtrics will provide data in a wide format, it will be necessary to change it into a long format. Each row will be a participant's ratings for the questions they were asked. Since this is partially a between-subjects design, there will be four "groups" of columns. One group will be for the favorable-LIB Democrat conditon questions, another for the favorable-LIB Republican condition questions, etc. I will create new columns indicating which condition the participant is in (coded 1 to 4). In order to replicate some of the graphs, I think I will also need to make other columns indicating whether the participant was in a favorable or unfavorable LIB condition (LIB_condition), as well as whether they were in a Democrat or Republican condition (POL_condition_target). Then I will gather the data using dpylr so that ratings for the same questions are in the same columns. 
+Since Qualtrics will provide data in a wide format, it will be necessary to change it into a long format. Each row will be a participant's ratings for the questions they were asked. Since this is partially a between-subjects design, there will be four "groups" of columns. One group will be for the favorable-LIB Democrat conditon questions, another for the favorable-LIB Republican condition questions, etc. I will create new columns indicating which condition the participant is in (coded 1 to 4). In order to replicate some of the graphs, I think I will also need to make other columns indicating whether the participant was in a favorable or unfavorable LIB condition (LIB_condition), as well as whether they were in a Democrat or Republican condition (POL_condition). Then I will gather the data using dpylr so that ratings for the same questions are in the same columns. 
 	
-```{r include=F}
+```{r include= T}
 ###Data Preparation
 
 ####Load Relevant Libraries and Functions
 #tidyverse, dplyr, ggplot, etc.
-
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
 ####Import data
 #data from qualtrics will be in CSV format
-
+pilot = read.csv("/Users/Hannah/Documents/stanford/2018 autumn/psych 251_pilot.csv")
 #### Data exclusion / filtering
-#Exclude participants with "other" or "none" as political affiliation
+list(unique(pilot$participant_pol))
+list(unique(pilot$gender))
+pilot$participant_pol = recode(pilot$participant_pol, "1" = "Democrat", "2" = "Republican")
+pilot$gender = recode(pilot$gender, "1" ="Male", "2" ="Female")
 #### Prepare data for analysis - create columns etc.
-#Since Qualtrics will provide data in a wide format, it will be necessary to change it into a long format. Each row will be a participant's ratings for the questions they were asked. Since this is partially a between-subjects design, there will be four "groups" of columns. One group will be for the favorable-LIB Democrat conditon questions, another for the favorable-LIB Republican condition questions, etc. I will create new columns indicating which condition the participant is in (coded 1 to 4). In order to replicate some of the graphs, I think I will also need to make other columns indicating whether the participant was in a favorable or unfavorable LIB condition (LIB_condition), as well as whether they were in a Democrat or Republican condition (POL_condition_target). Then I will gather the data using dpylr so that ratings for the same questions are in the same columns. 
+
+pilot_long1 = pilot %>% 
+  gather(comm_pol, comm_pol_response, comm_pol1, comm_pol2, comm_pol3, comm_pol4)
+pilot_long2 = pilot_long1 %>% 
+  gather(friendship_likelihood, friendship_likelihood_response, friendship_likelihood1, friendship_likelihood2, friendship_likelihood3, friendship_likelihoo4)
+pilot_long3 = pilot_long2 %>% 
+  gather(peter_helpful, peter_helpful_response, peter_helpful1, peter_helpful2, peter_helpful3, peter_helpful4)
+pilot_long = pilot_long3 %>% 
+  gather(peter_rude, peter_rude_response, peter_rude1, peter_rude2, peter_rude3, peter_rude4)
 ```
 
 ### Confirmatory analysis
-All code in this section is hypothetical. Three main analyses will be conducted. The first is the LIB manipulation check. I will utilize an ANOVA to see if there are significant differences between the conditions in terms of how helpful or rude the participants expect Peter to be in the future. Tukey HSD tests will be conducted post-hoc if significant differences are found. 
-
-manip_check_rude.aov = lm(rude ~ LIB_condition*POL_condition_target, data)
-summary(manip_check_rude.aov)
-manip_check_helpful.aov = lm(rude ~ LIB_condition*POL_condition_target, data)
-summary(manip_check_helpful.aov)
-```{r include=F}
-#manip_check_rude.aov = lm(rude ~ LIB_condition*POL_condition_target, data)
-#summary(manip_check_rude.aov)
-#manip_check_helpful.aov = lm(rude ~ LIB_condition*POL_condition_target, data)
-#summary(manip_check_helpful.aov)
+Two main analyses will be conducted. The first is the LIB manipulation check. I will utilize an ANOVA to see if there are significant differences between the conditions in terms of how helpful or rude the participants expect Peter to be in the future. Tukey HSD tests will be conducted post-hoc if significant differences are found. 
+```{r include= T}
+pilot_long$LIB_condition = ifelse(pilot_long$comm_pol == "comm_pol1"|pilot_long$comm_pol == "comm_pol4", "Favorable LIB",
+                                  ifelse(pilot_long$comm_pol == "comm_pol2"|pilot_long$comm_pol == "comm_pol3", "Unfavorable LIB",
+                                  NA))
+pilot_long$POL_condition = ifelse(pilot_long$comm_pol == "comm_pol1"|pilot_long$comm_pol == "comm_pol2", "Democrat",
+                                  ifelse(pilot_long$comm_pol == "comm_pol3"|pilot_long$comm_pol == "comm_pol4", "Republican",
+                                  NA))
+pilot_long$condition_num = ifelse(pilot_long$LIB_condition == "Favorable LIB" & pilot_long$POL_condition == "Democrat", 1,
+                                  ifelse(pilot_long$LIB_condition == "Unfavorable LIB" & pilot_long$POL_condition == "Democrat", 2,
+                                         ifelse(pilot_long$LIB_condition == "Unfavorable LIB" & pilot_long$POL_condition == "Republican", 3,
+                                                ifelse(pilot_long$LIB_condition == "Favorable LIB"& pilot_long$POL_condition == "Republican", 4,
+                                  NA))))
+manip_check_rude.aov = lm(peter_rude_response ~ LIB_condition*POL_condition,pilot_long)
+anova(manip_check_rude.aov)
+manip_check_helpful.aov = lm(peter_helpful_response ~ LIB_condition*POL_condition, pilot_long)
+anova(manip_check_helpful.aov)
 ```
 
-Similar ANOVAs will be conducted for the social category inference and friendship likelihood DVs, this time taking into account the participant's political affiliation. Tukey HSD tests will be conducted post-hoc if significant differences are found.
+Similar ANOVAs will be conducted for the social category inference DV, this time taking into account the participant's political affiliation. Tukey HSD tests will be conducted post-hoc if significant differences are found.
 
-friendship_likelihood_hyp.aov = lm(friendship_likelihood ~ LIB_condition(asterisk)POL_condition_target (asterisk)POL_condition_participant, data)
-summary(friendship_likelihood_hyp.aov)
+```{r include= T}
+social_category_hyp.aov = lm(comm_pol_response ~ LIB_condition*POL_condition*participant_pol, pilot_long)
+anova(social_category_hyp.aov)
 
-social_category_hyp.aov = lm(social_category ~ LIB_condition(asterisk)POL_condition_target(asterisk)POL_condition_participant, data)
-summary(social_category_hyp.aov)
-
-Note: I am still learning how to test for interaction effects. If this is not the correct way to code this, please let me know!
-```{r include=F}
-#friendship_likelihood_hyp.aov = lm(friendship_likelihood ~ LIB_condition*POL_condition_target*POL_condition_participant, data)
-#summary(friendship_likelihood_hyp.aov)
-
-#social_category_hyp.aov = lm(social_category ~ LIB_condition*POL_condition_target*POL_condition_participant, data)
-#summary(social_category_hyp.aov)
-
-#Note: I am still learning how to test for interaction effects. If this is not the correct way to code this, please let me know!
+ggplot(pilot_long, aes(x=pilot_long$POL_condition, y= pilot_long$comm_pol_response, fill=pilot_long$LIB_condition)) +
+  xlab("Target's Political Affiliation") +
+  ylab(expression(atop("Likelihood that Communicator and", paste("Target Share Same Political Affiliation")))) +
+  labs(fill="LIB Condition") +
+  geom_bar(position="dodge", stat="identity") + 
+  scale_fill_brewer(palette="Set2")
 ```
 
 *Side-by-side graph with original graph is ideal here*
