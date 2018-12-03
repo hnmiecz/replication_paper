@@ -1,0 +1,10 @@
+participant,comm_pol1,friendship_likelihood1,peter_helpful1,peter_rude1,comm_pol2,friendship_likelihood2,peter_helpful2,peter_rude2,comm_pol3,friendship_likelihood3,peter_helpful3,peter_rude3,comm_pol4,friendship_likelihoo4,peter_helpful4,peter_rude4,gender,participant_pol,liberal_beliefs,conservative_beliefs
+1,,,,,4,3,75,25,,,,,,,,,2,1,9,5
+2,,,,,,,,,,,,,5,3,50,50,2,1,9,5
+3,,,,,,,,,,,,,8,1,35,65,2,1,4,4
+4,3,4,60,40,,,,,,,,,,,,,1,2,6,8
+5,,,,,,,,,,,,,6,2,50,50,2,1,8,8
+6,2,1,50,70,,,,,,,,,,,,,1,1,9,5
+7,,,,,,,,,4,3,75,25,,,,,1,2,4,5
+8,,,,,,,,,4,3,75,25,,,,,2,2,5,4
+9,,,,,1,5,30,80,,,,,,,,,2,1,8,8
