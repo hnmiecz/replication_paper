@@ -142,8 +142,13 @@ pilot_long = pilot %>%
                "Favorable LIB ~~~ Republican"))) %>%
   separate(condition, into=c("LIB_condition", "POL_condition"),
            sep=" ~~~ ") %>%
-  spread(question, response) %>%
-  mutate(question = paste(question, "_response", sep=""))
+  mutate(question = ifelse(question == "friendship_likelihoo",
+                           "friendship_likelihood",
+                           question)) %>%
+  mutate(question = paste(question, "_response", sep="")) %>%
+  spread(question, response)
+
+names(pilot_long)
 ```
 
 
@@ -153,7 +158,7 @@ Two main analyses will be conducted. The first is the LIB manipulation check. I 
 
 
 ```{r}
-manip_check_rude.aov = lm(response ~ LIB_condition*POL_condition,(pilot_long %>% filter()))
+manip_check_rude.aov = lm(peter_rude_response ~ LIB_condition*POL_condition,(pilot_long %>% filter()))
 anova(manip_check_rude.aov)
 manip_check_helpful.aov = lm(peter_helpful_response ~ LIB_condition*POL_condition, pilot_long)
 anova(manip_check_helpful.aov)
