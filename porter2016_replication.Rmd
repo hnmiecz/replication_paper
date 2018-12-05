@@ -110,39 +110,50 @@ library(dplyr)
 library(ggplot2)
 ####Import data
 #data from qualtrics will be in CSV format
-pilot = read.csv("/Users/Hannah/Documents/stanford/2018 autumn/psych 251_pilot.csv")
+pilot = read.csv("psych 251_pilot.csv")
+
 #### Data exclusion / filtering
-list(unique(pilot$participant_pol))
-list(unique(pilot$gender))
+# list(unique(pilot$participant_pol))
+# list(unique(pilot$gender))
 pilot$participant_pol = recode(pilot$participant_pol, "1" = "Democrat", "2" = "Republican")
 pilot$gender = recode(pilot$gender, "1" ="Male", "2" ="Female")
-#### Prepare data for analysis - create columns etc.
 
-pilot_long1 = pilot %>% 
-  gather(comm_pol, comm_pol_response, comm_pol1, comm_pol2, comm_pol3, comm_pol4)
-pilot_long2 = pilot_long1 %>% 
-  gather(friendship_likelihood, friendship_likelihood_response, friendship_likelihood1, friendship_likelihood2, friendship_likelihood3, friendship_likelihoo4)
-pilot_long3 = pilot_long2 %>% 
-  gather(peter_helpful, peter_helpful_response, peter_helpful1, peter_helpful2, peter_helpful3, peter_helpful4)
-pilot_long = pilot_long3 %>% 
-  gather(peter_rude, peter_rude_response, peter_rude1, peter_rude2, peter_rude3, peter_rude4)
+substrRight <- function(x, n){
+  substr(x, nchar(x)-n+1, nchar(x))
+}
+
+cut_last_number = function(x) {
+  substr(x, 0, nchar(x)-1)
+}
+
+#### Prepare data for analysis - create columns etc.
+pilot_long = pilot %>%
+  gather("question", "response",
+         -c(participant, participant_pol, gender,
+            liberal_beliefs, conservative_beliefs)) %>%
+  filter(!is.na(response)) %>%
+  mutate(condition = substrRight(question, 1)) %>%
+  mutate(question = cut_last_number(question)) %>%
+  mutate(condition = factor(
+    condition, levels = 1:4,
+    labels = c("Favorable LIB ~~~ Democrat",
+               "Unfavorable LIB ~~~ Democrat",
+               "Unfavorable LIB ~~~ Republican",
+               "Favorable LIB ~~~ Republican"))) %>%
+  separate(condition, into=c("LIB_condition", "POL_condition"),
+           sep=" ~~~ ") %>%
+  spread(question, response) %>%
+  mutate(question = paste(question, "_response", sep=""))
 ```
 
+
 ### Confirmatory analysis
+
 Two main analyses will be conducted. The first is the LIB manipulation check. I will utilize an ANOVA to see if there are significant differences between the conditions in terms of how helpful or rude the participants expect Peter to be in the future. Tukey HSD tests will be conducted post-hoc if significant differences are found. 
-```{r include= T}
-pilot_long$LIB_condition = ifelse(pilot_long$comm_pol == "comm_pol1"|pilot_long$comm_pol == "comm_pol4", "Favorable LIB",
-                                  ifelse(pilot_long$comm_pol == "comm_pol2"|pilot_long$comm_pol == "comm_pol3", "Unfavorable LIB",
-                                  NA))
-pilot_long$POL_condition = ifelse(pilot_long$comm_pol == "comm_pol1"|pilot_long$comm_pol == "comm_pol2", "Democrat",
-                                  ifelse(pilot_long$comm_pol == "comm_pol3"|pilot_long$comm_pol == "comm_pol4", "Republican",
-                                  NA))
-pilot_long$condition_num = ifelse(pilot_long$LIB_condition == "Favorable LIB" & pilot_long$POL_condition == "Democrat", 1,
-                                  ifelse(pilot_long$LIB_condition == "Unfavorable LIB" & pilot_long$POL_condition == "Democrat", 2,
-                                         ifelse(pilot_long$LIB_condition == "Unfavorable LIB" & pilot_long$POL_condition == "Republican", 3,
-                                                ifelse(pilot_long$LIB_condition == "Favorable LIB"& pilot_long$POL_condition == "Republican", 4,
-                                  NA))))
-manip_check_rude.aov = lm(peter_rude_response ~ LIB_condition*POL_condition,pilot_long)
+
+
+```{r}
+manip_check_rude.aov = lm(response ~ LIB_condition*POL_condition,(pilot_long %>% filter()))
 anova(manip_check_rude.aov)
 manip_check_helpful.aov = lm(peter_helpful_response ~ LIB_condition*POL_condition, pilot_long)
 anova(manip_check_helpful.aov)
