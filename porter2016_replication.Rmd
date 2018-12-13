@@ -23,18 +23,19 @@ The stimuli in this experiment were passages about a fictional man named Peter t
 The participants in this replication study will be able to complete this on Amazon Mechanical Turk, which was also the venue for the original study. When conducting this experiment, I will be careful to properly set up the study on both Qualtrics and MTurk so that participants do not run into any issues that inhibit their completion of the study. Other challenges might include cleaning the data from Qualtrics, which has been difficult for me in the past. Hopefully my new knowledge of how to tidy the data will help!
 
 <!-- A link to the repository and to the original paper (as hosted in your repo). The goal is that we should be able to click on these links and review that your repo is formatted right and look at the original paper. -->
-Repository: https://github.com/hnmiecz/replication_paper
+Repository: https://github.com/hnmiecz/replication_paper 
 Original Paper: https://github.com/hnmiecz/replication_paper/blob/master/original_paper/porter2016.pdf
+Registration: https://osf.io/fd9pz/ 
 
 ##Methods
 
 ###Power Analysis
 
-The original authors note that the effect sizes they are using in Study 3 are taken from Study 1a. The effect size for study 3 was range from *d* = 0.51. Using G*Power, I conducted a power analysis to obtain 80% power with alpha = .05. 
+The original authors note that the effect sizes they are using in Study 3 are taken from Study 1a. The effect size for study 3 was *d* = 0.51. Using G*Power, I conducted an a priori power analysis to obtain 80% power with alpha = .05.
 
 ###Planned Sample
 
-From the power analysis, I concluded that a sample size of 50 would be appropriate. 
+From the power analysis, I concluded that a sample size of 123 would be appropriate. In order to avoid the extra MTurk fee, I plan to collect data from 126 participants (smallest multiple of 9 that is above 123). 
 
 ###Materials
 
@@ -64,41 +65,40 @@ The survey can be found here: https://stanforduniversity.qualtrics.com/jfe/form/
 
 First, like in the original paper, a LIB manipulation check will be conducted through an ANOVA. Participants in the favorable-LIB condition should believe that Peter will be more helpful in the future and participants in the unfavorable-LIB condition should indicate Peter will be rude in the future. If this is not the case, then the treatment will have failed. However, if it is shown to be successful, a factorial ANOVA (as completed in the original paper) will be conducted in order to ascertain any differences in dependent variable outcomes between conditions. The dependent variable is social category inference. 
 
-
-**Clarify key analysis of interest here**  The key analyses of interest are the aforementioned ANOVAs on social category inference. In order for the original main effect of LIB condition to replicate, I will look for a p-value of less than .01. 
+The key analysis of interest is an ANOVA, testing for the aforementioned main effect of LIB condition on social category inference. In order for the original main effect of LIB condition to replicate, I will look for a p-value of less than .01. 
 
 ###Differences from Original Study
 
-Since the data for this study was presumably collected in 2013 (when the first draft of the manuscript was received), differences in assumptions about political partisanship may occur. As a result of alleged "echo chambers" in the current politic moment, social category ratings may not replicate. There are no anticipated differences in method or procedure.
+Since the data for this study was presumably collected in 2013 (when the first draft of the manuscript was received), differences in assumptions about political partisanship may occur. As a result of alleged "echo chambers" in the current political moment, social category ratings may not replicate. 
+
+Additionally, I highlighted the word "communicator" in the question asking about social category inference to make it more salient.
 
 ### Methods Addendum (Post Data Collection)
 
-<!--You can comment this section out prior to final report with data collection.
-
 #### Actual Sample
-  Sample size, demographics, data exclusions based on rules spelled out in analysis plan
+Sample size: 126 
+Demographics: 
+-Gender: 39.7% Female, 60.3% Male
+-Political Party Affiliation: 54.8% Democrat, 20.6% Republican, 22.2% Independent, 2.4% Other
+Data exclusions based on rules spelled out in analysis plan: No proposed exclusions
 
 #### Differences from pre-data collection methods plan
-  Any differences from what was described as the original plan, or “none”.-->
-
+None
 
 ##Results
 
-
 ### Data preparation
-
-Data preparation following the analysis plan.
-Load Relevant Libraries and Functions
+####Load Relevant Libraries and Functions
 tidyverse, dplyr, ggplot, etc.
 
-Import data
-data from qualtrics will be in CSV format
+####Import data
+Data from qualtrics will be in CSV format. In Excel I will remove unnecessary rows at the top of the file and rename the columns to make the variables of interest clear.
 
 Data exclusion / filtering
-Exclude participants with "other" or "none" as political affiliation
+Exclude participants with "other" or "none" as political affiliation.
 
 Prepare data for analysis - create columns etc.
-Since Qualtrics will provide data in a wide format, it will be necessary to change it into a long format. Each row will be a participant's ratings for the questions they were asked. Since this is partially a between-subjects design, there will be four "groups" of columns. One group will be for the favorable-LIB Democrat conditon questions, another for the favorable-LIB Republican condition questions, etc. I will create new columns indicating which condition the participant is in (coded 1 to 4). In order to replicate some of the graphs, I think I will also need to make other columns indicating whether the participant was in a favorable or unfavorable LIB condition (LIB_condition), as well as whether they were in a Democrat or Republican condition (POL_condition). Then I will gather the data using dpylr so that ratings for the same questions are in the same columns. 
+Since Qualtrics will provide data in a wide format, it will be necessary to change it into a long format. Each row will be a participant's ratings for the questions they were asked. Since this is partially a between-subjects design, there will be four "groups" of columns. One group will be for the favorable-LIB Democrat conditon questions, another for the favorable-LIB Republican condition questions, etc. I will create new columns indicating which condition the participant is in (coded 1 to 4). In order to replicate some of the graphs, I will also need to make other columns indicating whether the participant was in a favorable or unfavorable LIB condition (LIB_condition), as well as whether they were in a Democrat or Republican condition (POL_condition). Then I will gather the data using dpylr so that question names specific to conditions are in one column and related responses are in an adjacent column.
 	
 ```{r include= T}
 ###Data Preparation
@@ -108,16 +108,19 @@ Since Qualtrics will provide data in a wide format, it will be necessary to chan
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
+library(sjstats)
+#formula for error bars
+sem <- function(x) {sd(x, na.rm=TRUE) / sqrt(sum(!is.na((x))))}
+ci <- function(x) {sem(x) * 1.96} # reasonable approximation 
 ####Import data
 #data from qualtrics will be in CSV format
-pilot = read.csv("psych 251_pilot.csv")
-
+porter3 = read.csv("/Users/Hannah/Documents/stanford/2018 autumn/psych251_full.csv")
+porter3
 #### Data exclusion / filtering
-# list(unique(pilot$participant_pol))
-# list(unique(pilot$gender))
-pilot$participant_pol = recode(pilot$participant_pol, "1" = "Democrat", "2" = "Republican")
-pilot$gender = recode(pilot$gender, "1" ="Male", "2" ="Female")
-
+list(unique(porter3$participant_pol))
+list(unique(porter3$gender))
+porter3$participant_pol = recode(porter3$participant_pol, "1" = "Democrat", "2" = "Independent", "3" = "Republican", "4" = "Other")
+porter3$gender = recode(porter3$gender, "1" ="Male", "2" ="Female")
 substrRight <- function(x, n){
   substr(x, nchar(x)-n+1, nchar(x))
 }
@@ -127,9 +130,9 @@ cut_last_number = function(x) {
 }
 
 #### Prepare data for analysis - create columns etc.
-pilot_long = pilot %>%
+porter3_long = porter3 %>%
   gather("question", "response",
-         -c(participant, participant_pol, gender,
+         -c(subid, participant_pol, gender,
             liberal_beliefs, conservative_beliefs)) %>%
   filter(!is.na(response)) %>%
   mutate(condition = substrRight(question, 1)) %>%
@@ -142,54 +145,98 @@ pilot_long = pilot %>%
                "Favorable LIB ~~~ Republican"))) %>%
   separate(condition, into=c("LIB_condition", "POL_condition"),
            sep=" ~~~ ") %>%
-  mutate(question = ifelse(question == "friendship_likelihoo",
-                           "friendship_likelihood",
-                           question)) %>%
-  mutate(question = paste(question, "_response", sep="")) %>%
   spread(question, response)
+porter3_long
 
-names(pilot_long)
+#Proportions of participants reporting different genders, political party affiliation
+prop.table(table(porter3_long$gender))
+prop.table(table(porter3_long$participant_pol))
 ```
 
-
-### Confirmatory analysis
+### Manipulation Check Analysis
 
 Two main analyses will be conducted. The first is the LIB manipulation check. I will utilize an ANOVA to see if there are significant differences between the conditions in terms of how helpful or rude the participants expect Peter to be in the future. Tukey HSD tests will be conducted post-hoc if significant differences are found. 
 
-
 ```{r}
-manip_check_rude.aov = lm(peter_rude_response ~ LIB_condition*POL_condition,(pilot_long %>% filter()))
+manip_check_rude.aov = lm(peter_rude ~ LIB_condition*POL_condition, porter3_long)
 anova(manip_check_rude.aov)
-manip_check_helpful.aov = lm(peter_helpful_response ~ LIB_condition*POL_condition, pilot_long)
+anova_stats(manip_check_rude.aov)
+manip_check_helpful.aov = lm(peter_helpful ~ LIB_condition*POL_condition, porter3_long)
 anova(manip_check_helpful.aov)
+anova_stats(manip_check_helpful.aov)
 ```
+Unlike in Porter et al., LIB condition did not have a significant effect on the likelihood of Peter being helpful or rude in the future. 
 
+#Confirmatory Analysis
 Similar ANOVAs will be conducted for the social category inference DV, this time taking into account the participant's political affiliation. Tukey HSD tests will be conducted post-hoc if significant differences are found.
 
 ```{r include= T}
-social_category_hyp.aov = lm(comm_pol_response ~ LIB_condition*POL_condition*participant_pol, pilot_long)
+#test for main effect of LIB condition on social category inference
+social_category_hyp.aov = lm(comm_pol ~ LIB_condition*POL_condition*participant_pol, porter3_long)
 anova(social_category_hyp.aov)
+anova_stats(social_category_hyp.aov)
 
-ggplot(pilot_long, aes(x=pilot_long$POL_condition, y= pilot_long$comm_pol_response, fill=pilot_long$LIB_condition)) +
+#prepare data for plotting
+porter3_long_plot = porter3_long %>% 
+  group_by(LIB_condition, POL_condition) %>% 
+  summarise(mean_comm_pol = mean(comm_pol),
+            ci = ci(comm_pol))
+porter3_long_plot
+
+#plot data
+ggplot(porter3_long_plot, aes(x=POL_condition, y=mean_comm_pol, fill=LIB_condition)) +
+  geom_bar(position="dodge", stat="identity") + 
+  geom_errorbar(aes(ymin = mean_comm_pol-ci, ymax = mean_comm_pol+ci), width = .2, position = position_dodge(.9)) +
   xlab("Target's Political Affiliation") +
   ylab(expression(atop("Likelihood that Communicator and", paste("Target Share Same Political Affiliation")))) +
   labs(fill="LIB Condition") +
-  geom_bar(position="dodge", stat="identity") + 
   scale_fill_brewer(palette="Set2")
 ```
 
-*Side-by-side graph with original graph is ideal here*
+![Porter et al., Figure 3](/Users/Hannah/Desktop/Screen Shot 2018-12-06 at 4.47.28 PM.png)
 
 ###Exploratory analyses
+Porter et al. (2016) also conducted an analysis to test the interaction of Peter's political affiliation and participant's political affiliation on the likelihood that the participant would be friends with the target. A replication would be a significant interaction effect with a p-value of <.01. Additionally, since the manipulation check of LIB condition on Peter's likelihood of rudeness and helpfulness failed, I removed the participants that indicated there would be a 50% likelihood of Peter being rude and a 50% likelihood of Peter being helpful.
+```{r include = T}
+#test for interaction effect
+friendship_likelihood_hyp.aov = lm(friendship_likelihood ~ LIB_condition*POL_condition*participant_pol, porter3_long)
+anova(friendship_likelihood_hyp.aov)
 
-Any follow-up analyses desired (not required).  
+#prepare data for plotting
+porter3_long_plot2 = porter3_long %>% 
+  select(participant_pol, POL_condition, friendship_likelihood) %>% 
+  filter(participant_pol == "Democrat"| participant_pol == "Republican"|participant_pol =="Independent") %>% 
+  group_by(POL_condition, participant_pol) %>% 
+  summarise(mean_friendship = mean(friendship_likelihood),
+            ci = ci(friendship_likelihood))
+porter3_long_plot2
+
+#plot data
+ggplot(porter3_long_plot2, aes(x=participant_pol, y=mean_friendship, fill=POL_condition)) +
+  geom_bar(position="dodge", stat="identity") + 
+  geom_errorbar(aes(ymin = mean_friendship-ci, ymax = mean_friendship+ci), width = .2, position = position_dodge(.9)) +
+  xlab("Participant's Political Affiliation") +
+  ylab(expression(atop("Likelihood of Becoming Friends", paste("with the Communicator")))) +
+  labs(fill="Target's Political Affiliation") +
+  scale_fill_brewer(palette="Set2")
+
+#test if removing 50/50 alters manipulation check results
+porter3_filter = porter3_long %>% filter(peter_helpful == 50 & peter_rude == 50)
+porter3_filter
+manip_check_rude_filter.aov = lm(peter_rude ~ LIB_condition*POL_condition, porter3_filter)
+anova(manip_check_rude_filter.aov)
+manip_check_helpful_filter.aov = lm(peter_helpful ~ LIB_condition*POL_condition, porter3_filter)
+anova(manip_check_helpful_filter.aov)
+```
+The interaction effect did not replicate, and removing the 50/50 participants did not not alter the results of the manipulation check substantially. The effect of LIB condition of helpfulness/rudeness did not replicate.
 
 ## Discussion
 
 ### Summary of Replication Attempt
 
-Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
+This replication attempt failed to replicate the results of Porter et al. (2016) that were in question. Namely, the manipulation check of LIB condition on Peter's likelihood to be helpful OR rude was not significant, the main effect of LIB condition on social category inference was not significant, and the interaction effect of Peter's political affiliation and the participant's political affiliation on friendship likelihood was not significant. The failed replication of LIB condition is the most notable result, as this effect was present in all four of the studies in the original paper.
 
 ### Commentary
+As discussed in Mike's blog (http://babieslearninglanguage.blogspot.com/2018/12/how-to-run-study-that-doesnt-replicate.html), there are several aspects of this study that may contribute to a failed replication. For instance, both social category inference and frienship likelihood are single-item DVs; the study is between subjects, and the manipulation is induced by a single paragraph. Past work has shown that these factors are associated with lower likelihoods of replication. 
 
-Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
+Despite this failed replication, I think there still might be an effect of LIB on some outcome variables. Other work has shown that very subtle changes in language do have an effect on people's perceptions (Pennebaker, 2011), so I would not be surprised if LIB does influence variables such as social category inference. However, in order to truly understand these effects, a better study design would be necessary. Perhaps a within-subjects setup could be used, as well as multiple-item DVs.
